@@ -13,8 +13,6 @@ import java.util.ArrayList;
  */
 public final class App {
 
-    public static ArrayList<Student> studentList = new ArrayList<Student>();;
-    public static ArrayList<Student> studentListLoaded = new ArrayList<Student>();;
 
     private App() {
     }
@@ -26,27 +24,19 @@ public final class App {
      */
     public static void main(String[] args) {
 
-        buildStudentList();
+        FileIO fileHandler = new FileIO("iofiles");
+        Logger logger = new Logger("iofiles","log.txt");
 
-        /*
-         * objectSerialization(studentList.get(0));
-         * Student bob = objectDeSerialization();
-         * 
-         * System.out.println("Name = " + bob.name);
-         * System.out.println("Class Name = " + bob.className);
-         * System.out.println("RollNo = " + bob.rollNo);
-         */
+        Student s1 = new Student("James", "Art", "15404", logger);
 
-        objectSerializationArray();
+        
+        
 
-        objectDeSerializationArray();
+        logger.tidyUp();
 
-        for (Student s : studentListLoaded) {
-            System.out.println(s.name + " " + s.className + " " + s.rollNo);
-        }
 
     }
-
+/* 
     public static void objectSerialization(Student stu) {
         try {
             // Creating FileOutputStream object.
@@ -159,4 +149,5 @@ public final class App {
         System.out.println(outputFile.readFromFile("iofiles/out.txt"));
 
     }
+        */
 }
