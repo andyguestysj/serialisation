@@ -1,11 +1,11 @@
 package com.example;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Logger {
   
@@ -47,6 +47,10 @@ public class Logger {
 
     // write safely to file or crash gracefully(ish)
     try {
+      LocalTime now = LocalTime.now();
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss");
+      String timeStamp = "["+now.format(formatter)+"] ";
+      output.write(timeStamp.getBytes());
       output.write(logString.getBytes());
       output.write(System.lineSeparator().getBytes());
     }

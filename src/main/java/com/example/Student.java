@@ -15,7 +15,12 @@ public class Student implements Serializable{
 		this.rollNo = rollNo;
 
 		logger.log("Student created [" + this.name + ", " + this.className + ", " + this.rollNo + "]");
-
 	}
+
+	public void displayStudent(){
+		System.out.println(this.name + ", " + this.className + ", " + this.rollNo);
+	}
+
+	public String getName() { return name;}
 
 }
